@@ -1,0 +1,28 @@
+# AppArmor profile for DevCenterIRCd 1.0
+#
+# Note that you may still see some DENIED warnings in logs with
+# operation="chmod". These are harmless and can be safely ignored.
+#
+# Tested on Ubuntu 16.x and 17.x
+#
+# NOTE: you will have to modify the path to executable below
+#       if it's not /home/ircd/devcenterircd/bin/devcenterircd.
+
+#include <tunables/global>
+
+# Change the pathname of your DevCenterIRCd executable here:
+/home/ircd/devcenterircd/bin/devcenterircd {
+  #include <abstractions/base>
+  #include <abstractions/nameservice>
+
+  @{HOME}/devcenterircd/conf/ r,
+  @{HOME}/devcenterircd/conf/** r,
+  @{HOME}/devcenterircd/data/ircd.tune rw,
+  @{HOME}/devcenterircd/data/devcenterircd.pid rw,
+  @{HOME}/devcenterircd/lib/*.so* mr,
+  @{HOME}/devcenterircd/logs/* rw,
+  @{HOME}/devcenterircd/modules/**.so r,
+  @{HOME}/devcenterircd/tmp/ r,
+  @{HOME}/devcenterircd/tmp/* mrw,
+  @{HOME}/devcenterircd/bin/devcenterircd mr,
+}

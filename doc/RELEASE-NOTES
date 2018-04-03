@@ -1,0 +1,49 @@
+UnrealIRCd 4.0.18-devel Release Notes
+======================================
+
+UnrealIRCd 4.0.18-devel is work in progress.
+
+==[ CHANGES BETWEEN 4.0.17 AND 4.0.18 ]==
+
+Enhancements:
+* None
+
+Major issues fixed:
+* The new optional feature 'set::cloak-method ip' caused identical cloaks
+
+Minor issues fixed:
+* When using '/REHASH -ssl' or './unrealircd reloadtls' it did not reload
+  the SSL certificate/key if you were using ssl-options in listen, sni or
+  link blocks. In short: it only reloaded the ones from set::ssl until now.
+
+Other:
+* The built-in time synchronization feature is now disabled by default.
+  TimeSynch was added back in 2006 when lot's of operating systems did not
+  ship with time synchronization turned on by default. Since incorrect time
+  severely breaks IRC networks this was a major problem. Nowadays this is
+  completely different with most Linux distro's, OS X, Windows, etc. doing
+  time synchronization out of the box. Since UnrealIRCd's implementation is
+  less precise and lacks authentication it's best left over to the system.
+  You can still re-enable timesynch via:
+  set { timesynch { enabled yes; }; };
+  .. but you should really use NTP or similar for system-wide time
+  synchronization instead.
+* Just as a reminder (this change was already in version 4.0.17):
+  UnrealIRCd will no longer give user mode +z to users on WEBIRC
+  gateways using SSL/TLS IRC, unless the WEBIRC gateway gives us
+  some assurance that the client<->webirc gateway connection is
+  also secure (eg: https).
+  This is the regular WEBIRC format:
+  WEBIRC password gateway hostname ip
+  This indicates a secure client connection (NEW):
+  WEBIRC password gateway hostname ip :secure
+  Naturally, WEBIRC gateways MUST NOT send the "secure" option if
+  the client is using http or some other insecure protocol.
+
+Module coders:
+* New hook HOOKTYPE_CAN_BYPASS_CHANNEL_MESSAGE_RESTRICTION
+  https://www.unrealircd.org/docs/Dev:Hook_API#HOOKTYPE_CAN_BYPASS_CHANNEL_MESSAGE_RESTRICTION
+
+==[ CHANGES IN OLDER RELEASES ]==
+For changes in previous UnrealIRCd releases see doc/RELEASE-NOTES.old or
+https://raw.githubusercontent.com/unrealircd/unrealircd/unreal40/doc/RELEASE-NOTES.old
