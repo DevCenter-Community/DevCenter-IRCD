@@ -23,7 +23,7 @@ and call it devcenterircd.conf. Then open it in an editor and carefully modify i
 
 GENERATING SSL LINKING PASSWORD
 
-In the installed folder run the following command: ./devcenterircd spkifp 
+In the installed folder run the following command: ./devcenterircd spkifp
 e.g. cd /home/user/devcenterircd && ./devcenterircd spkifp 
 
 STARTING IRCD:
