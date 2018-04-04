@@ -20,6 +20,11 @@ CREATE A CONFIGURATION FILE:
 If you are new, then you need to create your own configuration file: Copy conf/examples/example.conf to conf/ 
 and call it devcenterircd.conf. Then open it in an editor and carefully modify it.
 
+GENERATING SSL LINKING PASSWORD
+
+In the installed folder run the following command: ./devcenterircd spkifp 
+e.g. cd /home/user/devcenterircd && ./devcenterircd spkifp 
+
 STARTING IRCD:
 
 Run ./devcenterircd start in the directory where you installed DevCenterIRCd.
