@@ -1,4 +1,3 @@
-
 Welcome to the first realease of the DevCenter Network IRCd
 We present you DevCenterIRCd-1.0, a MODIFIED UnrealIRCd, so most of the credits fhould go to the UnrealIRCd team 
 that can be found at https://www.unrealircd.org.
