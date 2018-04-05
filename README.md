@@ -35,5 +35,10 @@ For questions and remarks, you can find us on http://www.devcenter.info or using
 * irc6.devcenter.info (ipv6 servers)
 
 ENJOY DEVCENTER!
-
-Last update on 05.04.2018 by ZioN
+-----------------
+|  Last update  |
+-----------------
+| On 05.04.2018 |
+-----------------
+|    By ZioN    |
+-----------------
