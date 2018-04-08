@@ -8,7 +8,7 @@ dnl src/win32/unrealinst.iss
 dnl .CHANGES.NEW
 dnl src/version.c.SH
 
-AC_INIT([unrealircd], [4.0.18-devel], [http://bugs.unrealircd.org/], [], [http://unrealircd.org/])
+AC_INIT([devcenterircd], [4.0.18-devel], [http://bugs.unrealircd.org/], [], [http://unrealircd.org/])
 AC_CONFIG_SRCDIR([src/ircd.c])
 AC_CONFIG_HEADER([include/setup.h])
 AC_CONFIG_AUX_DIR([autoconf])
@@ -523,70 +523,70 @@ configuration files])],
 	dnl We have an apparently out-of-place 0 here because of a MacOSX bug and because
 	dnl we assume that a user thinks that `chmod 0600 blah' is the same as `chmod 600 blah'
 	dnl (#3189)
-	[AC_DEFINE_UNQUOTED([DEFAULT_PERMISSIONS], [0$withval], [The default permissions for configuration files. Set to 0 to prevent unrealircd from calling chmod() on the files.])],
-	[AC_DEFINE([DEFAULT_PERMISSIONS], [0600], [The default permissions for configuration files. Set to 0 to prevent unrealircd from calling chmod() on the files.])]) 
+	[AC_DEFINE_UNQUOTED([DEFAULT_PERMISSIONS], [0$withval], [The default permissions for configuration files. Set to 0 to prevent devcenterircd from calling chmod() on the files.])],
+	[AC_DEFINE([DEFAULT_PERMISSIONS], [0600], [The default permissions for configuration files. Set to 0 to prevent devcenterircd from calling chmod() on the files.])]) 
 
-AC_ARG_WITH(bindir, [AS_HELP_STRING([--with-bindir=path],[Specify the directory for the unrealircd binary])],
-	[AC_DEFINE_UNQUOTED([BINDIR], ["$withval"], [Define the directory where the unrealircd binary is located])
+AC_ARG_WITH(bindir, [AS_HELP_STRING([--with-bindir=path],[Specify the directory for the devcenterircd binary])],
+	[AC_DEFINE_UNQUOTED([BINDIR], ["$withval"], [Define the directory where the devcenterircd binary is located])
 		BINDIR="$withval"],
-	[AC_DEFINE_UNQUOTED([BINDIR], ["$HOME/unrealircd/bin"], [Define the directory where the unrealircd binary is located])
-		BINDIR="$HOME/unrealircd/bin"])
+	[AC_DEFINE_UNQUOTED([BINDIR], ["$HOME/devcenterircd/bin"], [Define the directory where the devcenterircd binary is located])
+		BINDIR="$HOME/devcenterircd/bin"])
 
-AC_ARG_WITH(scriptdir, [AS_HELP_STRING([--with-scriptdir=path],[Specify the directory for the unrealircd start-stop script])],
-	[AC_DEFINE_UNQUOTED([SCRIPTDIR], ["$withval"], [Define the directory where the unrealircd start stop scripts is located])
+AC_ARG_WITH(scriptdir, [AS_HELP_STRING([--with-scriptdir=path],[Specify the directory for the devcenterircd start-stop script])],
+	[AC_DEFINE_UNQUOTED([SCRIPTDIR], ["$withval"], [Define the directory where the devcenterircd start stop scripts is located])
 		SCRIPTDIR="$withval"],
-	[AC_DEFINE_UNQUOTED([SCRIPTDIR], ["$HOME/unrealircd"], [Define the directory where the unrealircd start stop scripts is located])
-		SCRIPTDIR="$HOME/unrealircd"])
+	[AC_DEFINE_UNQUOTED([SCRIPTDIR], ["$HOME/devcenterircd"], [Define the directory where the devcenterircd start stop scripts is located])
+		SCRIPTDIR="$HOME/devcenterircd"])
 
 AC_ARG_WITH(confdir, [AS_HELP_STRING([--with-confdir=path],[Specify the directory where configuration files are stored])],
 	[AC_DEFINE_UNQUOTED([CONFDIR], ["$withval"], [Define the location of the configuration files])
 		CONFDIR="$withval"],
-	[AC_DEFINE_UNQUOTED([CONFDIR], ["$HOME/unrealircd/conf"], [Define the location of the configuration files])
-		CONFDIR="$HOME/unrealircd/conf"])
+	[AC_DEFINE_UNQUOTED([CONFDIR], ["$HOME/devcenterircd/conf"], [Define the location of the configuration files])
+		CONFDIR="$HOME/devcenterircd/conf"])
 
 AC_ARG_WITH(modulesdir, [AS_HELP_STRING([--with-modulesdir=path],[Specify the directory for loadable modules])],
 	[AC_DEFINE_UNQUOTED([MODULESDIR], ["$withval"], [Define the location of the modules])
 		MODULESDIR="$withval"],
-	[AC_DEFINE_UNQUOTED([MODULESDIR], ["$HOME/unrealircd/modules"], [Define the location of the modules])
-		MODULESDIR="$HOME/unrealircd/modules"])
+	[AC_DEFINE_UNQUOTED([MODULESDIR], ["$HOME/devcenterircd/modules"], [Define the location of the modules])
+		MODULESDIR="$HOME/devcenterircd/modules"])
 
 AC_ARG_WITH(logdir, [AS_HELP_STRING([--with-logdir=path],[Specify the directory where log files are stored])],
 	[AC_DEFINE_UNQUOTED([LOGDIR], ["$withval"], [Define the location of the log files])
 		LOGDIR="$withval"],
-	[AC_DEFINE_UNQUOTED([LOGDIR], ["$HOME/unrealircd/logs"], [Define the location of the log files])
-		LOGDIR="$HOME/unrealircd/logs"])
+	[AC_DEFINE_UNQUOTED([LOGDIR], ["$HOME/devcenterircd/logs"], [Define the location of the log files])
+		LOGDIR="$HOME/devcenterircd/logs"])
 
 AC_ARG_WITH(cachedir, [AS_HELP_STRING([--with-cachedir=path],[Specify the directory where cached files are stored])],
 	[AC_DEFINE_UNQUOTED([CACHEDIR], ["$withval"], [Define the location of the cached remote include files])
 		CACHEDIR="$withval"],
-	[AC_DEFINE_UNQUOTED([CACHEDIR], ["$HOME/unrealircd/cache"], [Define the location of the cached remote include files])
-		CACHEDIR="$HOME/unrealircd/cache"])
+	[AC_DEFINE_UNQUOTED([CACHEDIR], ["$HOME/devcenterircd/cache"], [Define the location of the cached remote include files])
+		CACHEDIR="$HOME/devcenterircd/cache"])
 
 AC_ARG_WITH(tmpdir, [AS_HELP_STRING([--with-tmpdir=path],[Specify the directory where private temporary files are stored. Should not be readable or writable by others, so not /tmp!!])],
 	[AC_DEFINE_UNQUOTED([TMPDIR], ["$withval"], [Define the location of private temporary files])
 		TMPDIR="$withval"],
-	[AC_DEFINE_UNQUOTED([TMPDIR], ["$HOME/unrealircd/tmp"], [Define the location of private temporary files])
-		TMPDIR="$HOME/unrealircd/tmp"])
+	[AC_DEFINE_UNQUOTED([TMPDIR], ["$HOME/devcenterircd/tmp"], [Define the location of private temporary files])
+		TMPDIR="$HOME/devcenterircd/tmp"])
 
 AC_ARG_WITH(datadir, [AS_HELP_STRING([--with-datadir=path],[Specify the directory where permanent data is stored])],
 	[AC_DEFINE_UNQUOTED([PERMDATADIR], ["$withval"], [Define the location of permanent data files])
 		PERMDATADIR="$withval"],
-	[AC_DEFINE_UNQUOTED([DATADIR], ["$HOME/unrealircd/data"], [Define the location of permanent data files])
-		PERMDATADIR="$HOME/unrealircd/data"])
+	[AC_DEFINE_UNQUOTED([DATADIR], ["$HOME/devcenterircd/data"], [Define the location of permanent data files])
+		PERMDATADIR="$HOME/devcenterircd/data"])
 
 AC_ARG_WITH(docdir, [AS_HELP_STRING([--with-docdir=path],[Specify the directory where documentation is stored])],
 	[AC_DEFINE_UNQUOTED([DOCDIR], ["$withval"], [Define the location of the documentation])
 		DOCDIR="$withval"],
-	[AC_DEFINE_UNQUOTED([DOCDIR], ["$HOME/unrealircd/doc"], [Define the location of the documentation])
-		DOCDIR="$HOME/unrealircd/doc"])
+	[AC_DEFINE_UNQUOTED([DOCDIR], ["$HOME/devcenterircd/doc"], [Define the location of the documentation])
+		DOCDIR="$HOME/devcenterircd/doc"])
 
 AC_ARG_WITH(pidfile, [AS_HELP_STRING([--with-pidfile=path],[Specify the path of the pid file])],
 	[AC_DEFINE_UNQUOTED([PIDFILE], ["$withval"], [Define the path of the pid file])
 		PIDFILE="$withval"],
-	[AC_DEFINE_UNQUOTED([PIDFILE], ["$HOME/unrealircd/data/unrealircd.pid"], [Define the path of the pid file])
-		PIDFILE="$HOME/unrealircd/data/unrealircd.pid"])
+	[AC_DEFINE_UNQUOTED([PIDFILE], ["$HOME/devcenterircd/data/devcenterircd.pid"], [Define the path of the pid file])
+		PIDFILE="$HOME/devcenterircd/data/devcenterircd.pid"])
 
-dnl Ensure that this “feature” can be disabled as it makes it harder to package unrealircd.
+dnl Ensure that this “feature” can be disabled as it makes it harder to package devcenterircd.
 dnl Users have always been able to specify “./configure LDFLAGS=-Wl,-rpath,/path/to/blah”—binki
 AC_ARG_WITH(privatelibdir, [AS_HELP_STRING([--with-privatelibdir=path],[Specify the directory where private libraries are stored. Disable when building a package for a distro])],
 	[],
@@ -594,7 +594,7 @@ AC_ARG_WITH(privatelibdir, [AS_HELP_STRING([--with-privatelibdir=path],[Specify 
 AS_IF([test "x$with_privatelibdir" = "xno"],
 	[PRIVATELIBDIR=],
 	[test "x$with_privatelibdir" = "xyes"],
-	[PRIVATELIBDIR="$HOME/unrealircd/lib"],
+	[PRIVATELIBDIR="$HOME/devcenterircd/lib"],
 	[PRIVATELIBDIR="$with_privatelibdir"])
 AS_IF([test "x$PRIVATELIBDIR" = "x"],
 	[LDFLAGS_PRIVATELIBS=""],
@@ -680,7 +680,7 @@ AC_SUBST([FD_SETSIZE])
 
 case `uname -s` in
 	*SunOS*|*solaris*)
-		AC_DEFINE([_SOLARIS], [], [Define if you are compiling unrealircd on Sun's (or Oracle's?) Solaris])
+		AC_DEFINE([_SOLARIS], [], [Define if you are compiling devcenterircd on Sun's (or Oracle's?) Solaris])
 		IRCDLIBS="$IRCDLIBS -lresolv "
 		;;
 esac
@@ -847,7 +847,7 @@ else
 	CARES_LIBSPRE="$CARES_LIBS"
 	dnl the sed expression forces an absolute path to the .so file to be generated
 	dnl because this is what libtool would do. If this wasn't done and /usr/lib*/libcares.so
-	dnl exists, then unrealircd would still try to link against the system c-ares.
+	dnl exists, then devcenterircd would still try to link against the system c-ares.
 	dnl The [] quotation is needed because the sed expression has [] in it.
 	[CARES_LIBS="$CARES_LIBS `$ac_cv_path_PKGCONFIG --libs libcares.pc | sed -e 's,-L\([^ ]\+lib\) -lcares,\1/libcares.so,'`"]
 	if test "$CARES_LIBS" = "$CARES_LIBSPRE " ; then
@@ -874,6 +874,6 @@ AC_CONFIG_FILES([Makefile
 	src/modules/extbans/Makefile
 	src/modules/cap/Makefile
 	src/modules/third/Makefile
-	unrealircd])
+	devcenterircd])
 AC_OUTPUT
-chmod 0700 unrealircd
+chmod 0700 devcenterircd
